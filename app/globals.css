@@ -1279,3 +1279,46 @@ body {
   color: #7A6354;
   display: block;
 }
+/* =========================================
+   REGLAS RESPONSIVE (ADAPTACIÓN PARA CELULARES)
+   ========================================= */
+
+@media (max-width: 768px) {
+  /* 1. Evitamos que cualquier contenedor se pase del ancho de la pantalla */
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 2. Ajustamos las cajas principales (Hero o rectángulos) para que no queden gigantes */
+  .hero-section, .glass-container, main {
+    width: 92% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    box-sizing: border-box;
+  }
+
+  /* 3. Reducimos los títulos principales para que no se corten en pantallas chicas */
+  h1 {
+    font-size: 2rem !important;
+    line-height: 1.2 !important;
+  }
+
+  /* 4. Forzamos que las columnas o grillas se apilen una abajo de otra */
+  .grid, .flex-row, .contenedor-polaroids {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 20px !important;
+    transform: none !important; /* Evita que las polaroids se desbanquen de la pantalla */
+  }
+
+  /* 5. Aseguramos que las imágenes no desborden */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+}
