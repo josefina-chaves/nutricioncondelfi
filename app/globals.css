@@ -1,0 +1,1281 @@
+/* =========================================
+   1. TIPOGRAFÍAS PERSONALIZADAS Y RESET
+   ========================================= */
+@font-face {
+  font-family: 'Dreaming Outloud';
+  src: url('/assets/dreaming-outloud-script-regular.otf') format('opentype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'FuenteSecundaria';
+  src: url('/assets/fuente-secundaria.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  /* Si tu archivo es .otf, cambiá el .ttf de abajo por .otf y 'truetype' por 'opentype' */
+  src: url('/assets/playfair-display.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box; 
+}
+
+html {
+  scroll-behavior: smooth; 
+}
+
+/* =========================================
+   2. ESTILOS GENERALES
+   ========================================= */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #FAF4EE; 
+  font-family: 'FuenteSecundaria', sans-serif;
+  color: #4A3B32; 
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 120px 5% 60px 5%; 
+}
+
+/* =========================================
+   3. GRILLA DE 3 COLUMNAS (HERO)
+   ========================================= */
+.hero-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch; 
+  max-width: 1200px;
+  width: 100%;
+  gap: 2.5rem;
+}
+
+/* =========================================
+   4. COLUMNA IZQUIERDA
+   ========================================= */
+.columna-izquierda {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.titulo-principal {
+  font-size: 3.8rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  font-family: 'Playfair Display', serif; 
+}
+
+.titulo-cursiva {
+  font-family: 'Dreaming Outloud', cursive;
+  color: #A67C65; 
+  font-size: 4.8rem;
+  display: block;
+  margin-top: 10px;
+}
+
+.contenedor-boton-cta {
+  margin-top: auto; 
+  align-self: flex-start;
+}
+
+.boton-imagen {
+  max-width: 220px; 
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.boton-imagen:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* =========================================
+   5. COLUMNA CENTRO (FOTO Y HOJAS)
+   ========================================= */
+.columna-centro {
+  flex: 1.2; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contenedor-foto {
+  position: relative;
+  display: inline-block; 
+}
+
+.foto-arco {
+  display: block;
+  width: 100%;
+  max-width: 380px; 
+  position: relative;
+  z-index: 10; 
+  border-radius: 10px; 
+}
+
+.hoja-flotante {
+  position: absolute;
+  z-index: 1; 
+  max-width: 130px; 
+  opacity: 0.95; 
+  pointer-events: none;
+}
+
+.hoja-arriba-izq {
+  top: -20px; 
+  left: -40px; 
+  transform: rotate(-25deg);
+}
+
+.hoja-arriba-der {
+  top: -10px;
+  right: -45px; 
+  transform: rotate(25deg);
+}
+
+.hoja-abajo-izq {
+  bottom: 25px;
+  left: -50px; 
+  transform: rotate(-35deg);
+}
+
+.hoja-abajo-der {
+  bottom: 25px;
+  right: -45px; 
+  transform: rotate(30deg);
+}
+
+/* =========================================
+   6. COLUMNA DERECHA
+   ========================================= */
+.columna-derecha {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.texto-presentacion {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #7A6354;
+  margin-top: 5rem; 
+}
+
+.contenedor-boton-testimonios {
+  margin-top: 2rem; 
+  align-self: flex-start;
+}
+
+.imagen-testimonios {
+  max-width: 220px; 
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.imagen-testimonios:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* =========================================
+   7. ESTILOS PARA EL NAVBAR
+   ========================================= */
+.navbar-header {
+  width: 100%;
+  background-color: #FAF4EE;
+  padding: 30px 5%; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.navbar-container {
+  max-width: 1200px; 
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.navbar-logo-hoja {
+  width: 35px;
+  height: auto;
+  transform: rotate(-10deg);
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .navbar-logo-hoja {
+  transform: rotate(5deg) scale(1.1);
+}
+
+.navbar-titulo-marca {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #4A3B32;
+  font-family: 'Playfair Display', serif;
+}
+
+.navbar-derecha {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #4A3B32;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  font-family: 'FuenteSecundaria', sans-serif;
+}
+
+.navbar-links a:hover {
+  color: #A67C65;
+}
+
+.boton-navbar-contacto {
+  background-color: #A67C65;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  font-family: 'FuenteSecundaria', sans-serif;
+}
+
+.boton-navbar-contacto:hover {
+  background-color: #4A3B32;
+  transform: scale(1.05);
+}
+
+/* =========================================
+   8. CINTA DIVISORIA EN MOVIMIENTO SUAVE
+   ========================================= */
+.cinta-divisoria-container {
+  width: 100%;
+  background-color: #A67C65; 
+  color: #FAF4EE; 
+  padding: 16px 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.cinta-divisoria-track {
+  display: flex;
+  width: max-content;
+  animation: desplazamientoSuave 35s linear infinite;
+}
+
+.cinta-divisoria-container:hover .cinta-divisoria-track {
+  animation-play-state: paused; 
+}
+
+.cinta-divisoria-contenido {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  white-space: nowrap;
+  font-family: 'FuenteSecundaria', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.cinta-divisoria-contenido .separador {
+  font-size: 0.8rem;
+  opacity: 0.85;
+}
+
+@keyframes desplazamientoSuave {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================
+   9. SECCIÓN: FRASE DE TRANSICIÓN
+   ========================================= */
+.seccion-frase-transicion {
+  width: 100%;
+  background-color: #ffffff; 
+  padding: 80px 5% 40px 5%;
+}
+
+.bloque-introduccion-servicios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.icono-comillas-texto {
+  font-family: 'Playfair Display', serif;
+  font-size: 8rem;
+  color: #4A3B32;
+  opacity: 0.15; 
+  line-height: 0.5; 
+  margin-bottom: -5px; 
+}
+
+.frase-enfoque {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; 
+  line-height: 1.6; 
+  color: #4A3B32;
+  margin: 0;
+  max-width: 900px; 
+}
+
+.resaltado-nude {
+  background-color: #EAD8C8; 
+  color: #4A3B32; 
+  padding: 4px 12px; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 5px rgba(74, 59, 50, 0.05); 
+  white-space: nowrap; 
+}
+
+/* =========================================
+   10. SECCIÓN: SOBRE MÍ
+   ========================================= */
+.seccion-sobre-mi {
+  width: 100%;
+  background-color: #ffffff; 
+  padding: 40px 5% 100px 5%; 
+}
+
+.contenedor-sobre-mi {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 4rem;
+  align-items: center; 
+}
+
+.columna-imagenes-sobre-mi {
+  width: 100%;
+  max-width: 360px; 
+  margin: 0 auto;
+  position: relative;
+}
+
+.imagen-sobre-mi-unica {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5; 
+  object-fit: cover; 
+  display: block;
+  border-radius: 20px;
+  filter: drop-shadow(0 10px 15px rgba(74, 59, 50, 0.15));
+}
+
+.columna-texto-sobre-mi {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.tag-destacado-sobre-mi {
+  display: inline-block;
+  background-color: #F1E3D3; 
+  color: #4A3B32;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  border: 1px solid #C49A84;
+}
+
+.titulo-seccion-sobre-mi {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.6rem;
+  color: #4A3B32;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.descripcion-sobre-mi {
+  font-size: 1.05rem;
+  color: #7A6354;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.contenedor-pildoras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 35px 0;
+}
+
+.pildora-area {
+  background-color: rgba(241, 227, 211, 0.5); 
+  color: #4A3B32;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  border: 1px solid rgba(241, 227, 211, 0.8);
+}
+
+.contenedor-boton-cta-sobre-mi {
+  margin-top: 15px; 
+}
+
+.boton-imagen-reserva {
+  max-width: 260px; 
+  width: 100%;
+  height: auto;
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.boton-imagen-reserva:hover {
+  transform: scale(1.05);
+  opacity: 0.95;
+}
+
+/* =========================================
+   11. PIE DE PÁGINA (FOOTER)
+   ========================================= */
+.footer-container {
+  background-color: #4A3B32; 
+  color: #FAF4EE;
+  padding: 70px 5% 30px 5%;
+}
+
+.footer-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 50px;
+}
+
+.footer-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #F1E3D3; 
+  display: block;
+  margin-bottom: 15px;
+}
+
+.footer-texto {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #DBCDC0;
+  max-width: 400px;
+  margin: 0;
+}
+
+.footer-enlaces h4,
+.footer-contacto h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  color: #F1E3D3; 
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.footer-enlaces ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-enlaces a {
+  color: #FAF4EE;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.2s ease;
+}
+
+.footer-enlaces a:hover {
+  color: #F1E3D3;
+}
+
+.footer-redes {
+  display: flex;
+  flex-direction: column; 
+  gap: 20px;
+  align-items: flex-start; 
+}
+
+.footer-redes a {
+  color: #FAF4EE;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-redes a svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.footer-redes a:hover svg {
+  color: #F1E3D3;
+  transform: scale(1.15);
+}
+
+.footer-copyright {
+  text-align: center;
+  padding-top: 25px;
+  border-top: 1px solid rgba(250, 244, 238, 0.15); 
+  font-size: 0.9rem;
+  color: #DBCDC0;
+}
+
+/* =========================================
+   12. CALENDARIO DE TURNOS
+   ========================================= */
+.cal-main {
+  min-height: 100vh;
+  background-color: #FAF4EE;
+  color: #4A3B32;
+  display: flex;
+  justify-content: center;
+  padding: 80px 5%;
+}
+
+.cal-container {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.cal-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.cal-tag {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #9E8675;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.cal-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin: 0 0 1rem 0;
+  color: #4A3B32;
+  font-family: 'Playfair Display', serif;
+}
+
+.cal-title span {
+  color: #A67C65;
+}
+
+.cal-subtitle {
+  font-size: 1.1rem;
+  color: #7A6354;
+  margin: 0;
+}
+
+.cal-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .cal-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+  }
+}
+
+.cal-section {
+  margin-bottom: 2.5rem;
+}
+
+.cal-section-title {
+  font-size: 0.8rem;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  color: #9E8675;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.cal-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.cal-dropdown-header-btn {
+  background-color: #F1E3D3;
+  border: 1px solid #C49A84;
+  border-radius: 12px;
+  padding: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(74, 59, 50, 0.05);
+  transition: all 0.2s ease;
+}
+
+.cal-dropdown-header-btn:hover {
+  background-color: #E6D3C0;
+}
+
+.cal-dropdown-info h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: #4A3B32;
+  font-weight: 800;
+}
+
+.cal-dropdown-info p {
+  margin: 5px 0 0 0;
+  font-size: 0.9rem;
+  color: #7A6354;
+}
+
+.cal-dropdown-price-wrap {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 900;
+  font-size: 1.15rem;
+  color: #4A3B32;
+}
+
+.cal-chevron {
+  color: #C49A84;
+  transition: transform 0.3s ease;
+}
+.cal-chevron.open {
+  transform: rotate(180deg);
+}
+
+.cal-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(74, 59, 50, 0.1);
+  margin-top: 10px;
+  z-index: 50;
+  overflow: hidden;
+  border: 1px solid #DBCDC0;
+}
+
+.cal-dropdown-scroll {
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+
+.cal-dropdown-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.cal-dropdown-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 10px 0;
+}
+.cal-dropdown-scroll::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+}
+
+.cal-dropdown-category-title {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #A67C65;
+  font-weight: 800;
+  padding: 15px 20px 5px;
+}
+
+.cal-dropdown-item {
+  padding: 15px 20px;
+  margin: 5px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.cal-dropdown-item:hover {
+  background-color: #F7EFE8;
+}
+
+.cal-dropdown-item.active {
+  background-color: #F1E3D3;
+  border: 1px solid #C49A84;
+}
+
+.cal-badge-recomendado {
+  background-color: #4A3B32;
+  color: #ffffff;
+  font-size: 0.65rem;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  box-shadow: 0 2px 4px rgba(74, 59, 50, 0.15);
+}
+
+.cal-month-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.cal-month-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.cal-nav-btns button {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid #DBCDC0;
+  background: transparent;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background 0.2s;
+}
+
+.cal-nav-btns button:hover {
+  background: #fff;
+}
+
+.cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px 0;
+  text-align: center;
+}
+
+.cal-weekday {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #9E8675;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DBCDC0;
+}
+
+.cal-day-btn {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+
+.cal-day-active {
+  background-color: #DDBEA9;
+  color: #4A3B32;
+  box-shadow: 0 2px 4px rgba(74, 59, 50, 0.1);
+}
+
+.cal-day-inactive {
+  background-color: transparent;
+  color: #999;
+}
+
+.cal-day-inactive:hover {
+  color: #4A3B32;
+  background-color: #F7EFE8;
+}
+
+.cal-inputs-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.cal-input {
+  width: 100%;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #999;
+  font-family: inherit;
+  font-size: 1rem;
+  color: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.cal-input:focus {
+  border-bottom-color: #A67C65;
+}
+
+.cal-times-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 768px) {
+  .cal-times-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.cal-time-btn {
+  padding: 12px 5px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 1px solid;
+  font-family: inherit;
+}
+
+.cal-time-active {
+  border-color: #C49A84;
+  background-color: #F7EFE8;
+  color: #4A3B32;
+}
+
+.cal-time-inactive {
+  border-color: #DBCDC0;
+  background-color: transparent;
+  color: #7A6354;
+}
+
+.cal-time-inactive:hover {
+  border-color: #9E8675;
+}
+
+.cal-submit-btn {
+  width: 100%;
+  padding: 18px;
+  border-radius: 12px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  transition: all 0.2s;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: inherit;
+}
+
+.cal-submit-active {
+  background-color: #EAD8C8;
+  color: #4A3B32;
+  cursor: pointer;
+}
+
+.cal-submit-active:hover {
+  background-color: #DEC5B0;
+}
+
+.cal-submit-inactive {
+  background-color: #e5e5e5;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.cal-disclaimer {
+  font-size: 0.8rem;
+  color: #9E8675;
+  line-height: 1.6;
+  margin-top: 15px;
+}
+
+/* =========================================
+   13. SECCIÓN PREGUNTAS FRECUENTES (FAQ)
+   ========================================= */
+.seccion-faq-turnos {
+  margin-top: 6rem;
+  padding-top: 4rem;
+  border-top: 1px solid #DBCDC0;
+  width: 100%;
+}
+
+.faq-turnos-header {
+  margin-bottom: 3.5rem;
+}
+
+.faq-tag-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
+}
+
+.faq-numero {
+  font-size: 0.85rem;
+  font-weight: bold;
+  color: #A67C65;
+}
+
+.faq-linea {
+  display: inline-block;
+  width: 35px;
+  height: 1px;
+  background-color: #A67C65;
+  opacity: 0.6;
+}
+
+.faq-tag {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #A67C65;
+}
+
+.faq-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #4A3B32;
+  margin: 0 0 10px 0;
+  letter-spacing: -0.5px;
+}
+
+.faq-subtitulo {
+  font-size: 1.1rem;
+  color: #7A6354;
+  margin: 0;
+}
+
+.faq-grid-turnos {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .faq-grid-turnos {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem 4rem;
+  }
+}
+
+.faq-item-turnos {
+  border-bottom: 1px solid #DBCDC0;
+  padding-bottom: 1.5rem;
+}
+
+.faq-btn-turnos {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  gap: 15px;
+  font-family: inherit;
+}
+
+.faq-txt-turnos {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #4A3B32;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.faq-btn-turnos:hover .faq-txt-turnos {
+  color: #A67C65;
+}
+
+.faq-plus-turnos {
+  font-size: 1.8rem;
+  color: #A67C65;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.faq-plus-turnos.open {
+  transform: rotate(180deg);
+}
+
+.faq-ans-turnos {
+  overflow: hidden;
+}
+
+.faq-ans-turnos p {
+  margin: 1.2rem 0 0 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #7A6354;
+}
+
+/* =========================================
+   14. SECCIÓN TESTIMONIOS (NUEVO BLOQUE)
+   ========================================= */
+.testimonios-seccion {
+  padding: 5rem 5%;
+  background-color: #FAF4EE;
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #EFE6DC;
+}
+
+.testimonios-container {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.testimonios-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.testimonios-tag {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #A67C65;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.testimonios-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #4A3B32;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.5px;
+}
+
+.testimonios-subtitulo {
+  font-size: 1.05rem;
+  color: #7A6354;
+  margin: 0;
+}
+
+/* CONTROLES / FLECHAS */
+.testimonios-controles {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.btn-carrusel {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid #DBCDC0;
+  background-color: #FFFFFF;
+  color: #4A3B32;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-carrusel:hover {
+  background-color: #4A3B32;
+  color: #FAF4EE;
+  border-color: #4A3B32;
+  transform: translateY(-2px);
+}
+
+/* GRILLA Y TARJETAS */
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .testimonios-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.tarjeta-testimonio {
+  position: relative;
+  background-color: #FFFFFF;
+  border: 1px solid #EFE6DC;
+  border-radius: 20px;
+  padding: 2.2rem 2rem;
+  box-shadow: 0 10px 30px rgba(74, 59, 50, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.tarjeta-testimonio:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(74, 59, 50, 0.1);
+}
+
+.comilla-bg {
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  font-family: 'Playfair Display', serif;
+  font-size: 7rem;
+  color: #FAF4EE;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.estrellas-rating {
+  color: #D4A373;
+  font-size: 1.2rem;
+  letter-spacing: 3px;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonio-texto {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #4A3B32;
+  margin: 0 0 2rem 0;
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+}
+
+.paciente-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid #FAF4EE;
+  padding-top: 1.2rem;
+}
+
+.avatar-paciente {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #F3ECE3;
+  color: #4A3B32;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #DBCDC0;
+}
+
+.paciente-nombre {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #4A3B32;
+  margin: 0 0 0.2rem 0;
+}
+
+.paciente-detalle {
+  font-size: 0.82rem;
+  color: #7A6354;
+  display: block;
+}
