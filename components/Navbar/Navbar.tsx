@@ -10,15 +10,15 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar-container">
-      <div className="navbar-content">
+    <header className="navbar-wrapper">
+      <nav className="navbar-container">
         {/* Logo o Marca */}
         <Link href="/" className="navbar-logo">
           Nutrición con Delfi
         </Link>
 
-        {/* Links de navegación para PC (Desktop) */}
-        <div className={`nav-links ${isOpen ? 'active' : ''}`}>
+        {/* Links de navegación */}
+        <div className={`nav-links ${isOpen ? 'open-menu' : ''}`}>
           <Link href="/" onClick={() => setIsOpen(false)}>Inicio</Link>
           <Link href="/SobreMi" onClick={() => setIsOpen(false)}>Sobre Mí</Link>
           <Link href="/Servicios" onClick={() => setIsOpen(false)}>Servicios</Link>
@@ -27,54 +27,54 @@ export default function Navbar() {
           </Link>
         </div>
 
-        {/* Botón Hamburguesa para Celular */}
-        <button className="hamburger-btn" onClick={toggleMenu} aria-label="Abrir menú">
-          <span className={`bar ${isOpen ? 'open' : ''}`}></span>
-          <span className={`bar ${isOpen ? 'open' : ''}`}></span>
-          <span className={`bar ${isOpen ? 'open' : ''}`}></span>
+        {/* Botón Hamburguesa */}
+        <button className="hamburger-btn" onClick={toggleMenu} aria-label="Menú">
+          <span className={`line ${isOpen ? 'rotate1' : ''}`}></span>
+          <span className={`line ${isOpen ? 'fade' : ''}`}></span>
+          <span className={`line ${isOpen ? 'rotate2' : ''}`}></span>
         </button>
-      </div>
+      </nav>
 
-      {/* Estilos CSS integrados para que funcione al instante */}
       <style jsx>{`
-        .navbar-container {
+        .navbar-wrapper {
           width: 100%;
           background-color: #FAF4EE;
           border-bottom: 1px solid #E6D5CC;
           position: sticky;
           top: 0;
-          z-index: 1000;
-          padding: 15px 0;
+          z-index: 9999;
         }
 
-        .navbar-content {
+        .navbar-container {
           max-width: 1200px;
           margin: 0 auto;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding: 0 20px;
+          padding: 15px 20px;
         }
 
         .navbar-logo {
           font-family: 'Playfair Display', serif;
-          font-size: 1.4rem;
+          font-size: 1.3rem;
           font-weight: bold;
           color: #4A3B32;
           text-decoration: none;
         }
 
+        /* Estilos de los links en PC */
         .nav-links {
           display: flex;
           align-items: center;
-          gap: 30px;
+          gap: 25px;
         }
 
         .nav-links :global(a) {
           color: #4A3B32;
           text-decoration: none;
           font-weight: 500;
-          transition: color 0.3s ease;
+          font-size: 0.95rem;
+          transition: color 0.3s;
         }
 
         .nav-links :global(a:hover) {
@@ -84,80 +84,77 @@ export default function Navbar() {
         .nav-btn-turno {
           background-color: #A67C65 !important;
           color: #FFF !important;
-          padding: 10px 20px;
-          border-radius: 25px;
-          transition: background-color 0.3s ease;
+          padding: 8px 18px !important;
+          border-radius: 20px;
         }
 
-        .nav-btn-turno:hover {
-          background-color: #7A6354 !important;
-        }
-
-        /* Botón hamburguesa oculto por defecto en PC */
+        /* Botón hamburguesa oculto en PC */
         .hamburger-btn {
           display: none;
           flex-direction: column;
           justify-content: space-between;
-          width: 30px;
-          height: 21px;
+          width: 28px;
+          height: 20px;
           background: transparent;
           border: none;
           cursor: pointer;
           padding: 0;
-          z-index: 10;
         }
 
-        .bar {
+        .line {
           width: 100%;
           height: 3px;
           background-color: #4A3B32;
-          border-radius: 3px;
+          border-radius: 2px;
           transition: all 0.3s ease;
         }
 
-        /* Adaptación Responsive para Celulares */
+        /* =========================================
+           VERSION CELULAR (Pantallas menores a 768px)
+           ========================================= */
         @media (max-width: 768px) {
           .hamburger-btn {
-            display: flex;
+            display: flex; /* Aparece el botón de las rayitas */
           }
 
+          /* Ocultamos los links por defecto y los transformamos en menú flotante */
           .nav-links {
-            position: absolute;
-            top: 100%;
-            left: 0;
+            display: flex;
+            position: fixed;
+            top: 60px; /* Queda justo debajo del navbar */
+            left: -100%; /* Escondido fuera de la pantalla a la izquierda */
             width: 100%;
+            height: calc(100vh - 60px);
             background-color: #FAF4EE;
             flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 30px 0;
-            gap: 20px;
-            border-bottom: 1px solid #E6D5CC;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            /* Animación de despliegue */
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
+            gap: 30px;
+            transition: left 0.35s ease-in-out;
+            box-shadow: 0 10px 15px rgba(0,0,0,0.05);
           }
 
-          .nav-links.active {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
+          /* Cuando se hace clic, el menú entra a la pantalla */
+          .nav-links.open-menu {
+            left: 0;
           }
 
-          /* Animación de las rayitas a una cruz X cuando se abre */
-          .hamburger-btn .bar.open:nth-child(1) {
-            transform: translateY(9px) rotate(45deg);
+          .nav-links :global(a) {
+            font-size: 1.2rem;
           }
-          .hamburger-btn .bar.open:nth-child(2) {
+
+          /* Animación del botón hamburguesa a cruz (X) */
+          .hamburger-btn .line.rotate1 {
+            transform: translateY(8.5px) rotate(45deg);
+          }
+          .hamburger-btn .line.fade {
             opacity: 0;
           }
-          .hamburger-btn .bar.open:nth-child(3) {
-            transform: translateY(-9px) rotate(-45deg);
+          .hamburger-btn .line.rotate2 {
+            transform: translateY(-8.5px) rotate(-45deg);
           }
         }
       `}</style>
-    </nav>
+    </header>
   );
 }
