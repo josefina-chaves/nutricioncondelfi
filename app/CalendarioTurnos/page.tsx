@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar/Navbar";
 
 const PLANES_CATEGORIAS = [
+  /* Ocultamos temporalmente el programa completo de 82.000
   {
     titulo: "Programas Completos",
     planes: [
@@ -20,6 +21,7 @@ const PLANES_CATEGORIAS = [
       }
     ]
   },
+  */
   {
     titulo: "Sesiones 1:1 (Individuales)",
     planes: [
@@ -27,9 +29,9 @@ const PLANES_CATEGORIAS = [
         id: 'presencial-1', 
         nombre: 'Sesión 1:1 Presencial', 
         desc: 'Presencial · Incluye Antropometría (1h 30m)', 
-        precio: 56000, 
+        precio: 70000, 
         sena: 15000, 
-        recomendado: false, 
+        recomendado: true, 
         modalidad: 'presencial',
         tipoHorario: 'presencial-antropometria'
       },
@@ -37,7 +39,7 @@ const PLANES_CATEGORIAS = [
         id: 'presencial-seg', 
         nombre: 'Seguimiento Presencial', 
         desc: 'Presencial · Consulta de seguimiento (1h)', 
-        precio: 46000, 
+        precio: 55000, 
         sena: 15000, 
         recomendado: false, 
         modalidad: 'presencial',
@@ -47,7 +49,7 @@ const PLANES_CATEGORIAS = [
         id: 'virtual-1', 
         nombre: 'Sesión 1:1 Virtual', 
         desc: 'Online · Por Google Meet (1 hora)', 
-        precio: 50000, 
+        precio: 60000, 
         sena: 15000, 
         recomendado: false, 
         modalidad: 'virtual',
@@ -57,7 +59,7 @@ const PLANES_CATEGORIAS = [
         id: 'virtual-seg', 
         nombre: 'Seguimiento Virtual', 
         desc: 'Online · Consulta + ajustes en el plan (1h)', 
-        precio: 40000, 
+        precio: 45000, 
         sena: 15000, 
         recomendado: false, 
         modalidad: 'virtual',
