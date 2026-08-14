@@ -67,49 +67,33 @@ export default function Inicio() {
       <Navbar />
 
       {/* =========================================
-          CONTENIDO PRINCIPAL
+          CONTENIDO PRINCIPAL (ACTUALIZADO Y RESPONSIVE)
           ========================================= */}
-      <main className="hero-container">
-        <section className="hero-grid">
+      <main className="relative w-full max-w-6xl mx-auto px-4 py-8 md:py-16 mt-4 md:mt-8 overflow-hidden">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-10 md:gap-12">
           
-          <div className="columna-izquierda">
-            <h1 className="titulo-principal">
+          {/* Columna Izquierda: Textos y Botones */}
+          <div className="w-full md:w-1/2 text-center md:text-left flex flex-col items-center md:items-start gap-4">
+            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold text-[#4A3B32] leading-tight">
               Nutrí tu cuerpo <br />
               Viví con Salud <br />
-              <span className="titulo-cursiva">Hoy</span>
+              <span className="italic text-[#A67C65]">Hoy</span>
             </h1>
             
-            <div className="contenedor-boton-cta">
+            <p className="text-[#6B574B] text-base sm:text-lg leading-relaxed max-w-xl mt-4">
+              ¡Hola!, soy Delfi, licenciada en Nutrición, <strong>graduada en diciembre de 2024 de la Universidad Nacional de La Plata.</strong><br/><br/>
+              Te acompaño a lograr tus objetivos de forma saludable, sin dietas restrictivas y adaptado a tu rutina. Mi enfoque se basa en una alimentación sin restricciones, flexible y sostenible, adaptada a las necesidades y objetivos de cada persona.
+            </p>
+            
+            <div className="pt-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start items-center">
               <Link href="/CalendarioTurnos">
                 <img 
                   src="/assets/boton-empezar.png" 
-                  className="boton-imagen" 
+                  className="h-12 md:h-14 hover:scale-105 transition-transform cursor-pointer" 
                   alt="Boton Empezar Ahora" 
                 />
               </Link>
-            </div>
-          </div>
-
-          <div className="columna-centro">
-            <div className="contenedor-foto">
-              <img src="/assets/hoja-1.png" className="hoja-flotante hoja-arriba-izq" alt="Hoja decorativa 1" />
-              <img src="/assets/hoja-2.png" className="hoja-flotante hoja-arriba-der" alt="Hoja decorativa 2" />
-              <img src="/assets/hoja-3.png" className="hoja-flotante hoja-abajo-izq" alt="Hoja decorativa 3" />
-              <img src="/assets/hoja-4.png" className="hoja-flotante hoja-abajo-der" alt="Hoja decorativa 4" />
               
-              <img src="/assets/delfi-foto.png" className="foto-arco" alt="Delfi Irañeta - Nutricionista" />
-            </div>
-          </div>
-
-          <div className="columna-derecha">
-            <p className="texto-presentacion">
-              ¡Hola!, soy Delfi, licenciada en Nutrición, <strong>graduada en diciembre de 2024 de la Universidad Nacional de La Plata.</strong><br/><br/>
-              Te acompaño a lograr tus objetivos de forma saludable, sin dietas restrictivas y adaptado a tu rutina.
-              Mi enfoque se basa en una alimentación sin restricciones, flexible y sostenible, adaptada a las necesidades y objetivos de cada persona.
-            </p>
-            
-            {/* BOTÓN TESTIMONIOS QUE AHORA LLEVA A WHATSAPP */}
-            <div className="contenedor-boton-testimonios">
               <a 
                 href="https://wa.me/5492215732060?text=¡Hola%20Delfi!%20Me%20gustaría%20hacerte%20una%20consulta."
                 target="_blank" 
@@ -117,14 +101,41 @@ export default function Inicio() {
               >
                 <img 
                   src="/assets/boton-testimonios.png" 
-                  className="imagen-testimonios" 
+                  className="h-12 md:h-14 hover:scale-105 transition-transform cursor-pointer" 
                   alt="Contacto por WhatsApp" 
                 />
               </a>
             </div>
           </div>
 
-        </section>
+          {/* Columna Derecha: Fotos Polaroids */}
+          <div className="w-full md:w-1/2 flex justify-center items-center relative min-h-[350px] mt-8 md:mt-0">
+            <div className="relative w-full max-w-[380px] h-[350px] flex justify-center items-center">
+              
+              {/* Polaroid 1 (Izquierda) */}
+              <div className="absolute w-[180px] sm:w-[220px] bg-[#FAF4EE] p-3 rounded-lg shadow-xl -rotate-6 -translate-x-12 sm:-translate-x-16 hover:rotate-0 hover:scale-105 hover:z-20 transition-all duration-300 border border-[#E6D5CC]">
+                <img 
+                  src="/assets/delfi-foto.png" 
+                  alt="Delfi Nutricionista" 
+                  className="w-full h-[200px] sm:h-[240px] object-cover rounded bg-white"
+                />
+                <p className="text-center font-serif text-xs sm:text-sm text-[#4A3B32] mt-2 font-medium">Nutrición real ✨</p>
+              </div>
+
+              {/* Polaroid 2 (Derecha) */}
+              <div className="absolute w-[180px] sm:w-[220px] bg-[#FAF4EE] p-3 rounded-lg shadow-xl rotate-6 translate-x-12 sm:translate-x-16 translate-y-6 hover:rotate-0 hover:scale-105 hover:z-20 transition-all duration-300 border border-[#E6D5CC]">
+                <img 
+                  src="/assets/delfi-foto.png" 
+                  alt="Consulta nutricional" 
+                  className="w-full h-[200px] sm:h-[240px] object-cover rounded bg-white"
+                />
+                <p className="text-center font-serif text-xs sm:text-sm text-[#4A3B32] mt-2 font-medium">Hábitos conscientes 🌿</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
       </main>
 
       {/* =========================================
