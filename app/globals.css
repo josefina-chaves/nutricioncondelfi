@@ -291,6 +291,109 @@ body {
 }
 
 /* =========================================
+   7.1 MENÚ HAMBURGUESA (MOBILE)
+   ========================================= */
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background-color: #4A3B32;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar-toggle.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+.navbar-mobile-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: #FAF4EE;
+  border-bottom: 1px solid #E6D5CC;
+  box-shadow: 0 12px 25px rgba(74, 59, 50, 0.1);
+  padding: 24px 6% 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  z-index: 99;
+}
+
+.navbar-mobile-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.navbar-mobile-links a {
+  text-decoration: none;
+  color: #4A3B32;
+  font-size: 1.1rem;
+  font-weight: 500;
+  font-family: 'FuenteSecundaria', sans-serif;
+}
+
+.navbar-mobile-links a:hover {
+  color: #A67C65;
+}
+
+.navbar-mobile-contacto {
+  width: 100%;
+  text-align: center;
+}
+
+@media (min-width: 861px) {
+  .navbar-mobile-menu {
+    display: none !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .navbar-header {
+    padding: 20px 6%;
+  }
+
+  .navbar-derecha {
+    display: none;
+  }
+
+  .navbar-toggle {
+    display: flex;
+  }
+}
+
+/* =========================================
    8. CINTA DIVISORIA EN MOVIMIENTO SUAVE
    ========================================= */
 .cinta-divisoria-container {
@@ -1283,42 +1386,173 @@ body {
    REGLAS RESPONSIVE (ADAPTACIÓN PARA CELULARES)
    ========================================= */
 
-@media (max-width: 768px) {
-  /* 1. Evitamos que cualquier contenedor se pase del ancho de la pantalla */
-  body, html {
-    overflow-x: hidden;
-    width: 100%;
-    margin: 0;
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  /* --- HERO --- */
+  .hero-container {
+    padding: 110px 6% 50px 6%;
+  }
+
+  .hero-grid {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+  }
+
+  .columna-izquierda,
+  .columna-derecha {
+    align-items: center;
     padding: 0;
   }
 
-  /* 2. Ajustamos las cajas principales (Hero o rectángulos) para que no queden gigantes */
-  .hero-section, .glass-container, main {
-    width: 92% !important;
-    max-width: 100% !important;
-    margin: 0 auto !important;
-    padding: 20px !important;
-    box-sizing: border-box;
+  .contenedor-boton-cta {
+    align-self: center;
+    margin-top: 1.5rem;
   }
 
-  /* 3. Reducimos los títulos principales para que no se corten en pantallas chicas */
-  h1 {
-    font-size: 2rem !important;
-    line-height: 1.2 !important;
+  .titulo-principal {
+    font-size: 2.6rem;
   }
 
-  /* 4. Forzamos que las columnas o grillas se apilen una abajo de otra */
-  .grid, .flex-row, .contenedor-polaroids {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    gap: 20px !important;
-    transform: none !important; /* Evita que las polaroids se desbanquen de la pantalla */
+  .titulo-cursiva {
+    font-size: 3.2rem;
   }
 
-  /* 5. Aseguramos que las imágenes no desborden */
-  img {
-    max-width: 100% !important;
-    height: auto !important;
+  .contenedor-foto {
+    margin: 0 auto;
+  }
+
+  .foto-arco {
+    max-width: 280px;
+  }
+
+  .hoja-flotante {
+    max-width: 90px;
+  }
+
+  .hoja-arriba-izq { top: -10px; left: -10px; }
+  .hoja-arriba-der { top: -5px; right: -10px; }
+  .hoja-abajo-izq { bottom: 10px; left: -15px; }
+  .hoja-abajo-der { bottom: 10px; right: -15px; }
+
+  .texto-presentacion {
+    margin-top: 0;
+    text-align: center;
+  }
+
+  .contenedor-boton-testimonios {
+    align-self: center;
+  }
+
+  /* --- FRASE DE TRANSICIÓN --- */
+  .frase-enfoque {
+    font-size: 1.5rem;
+  }
+
+  .icono-comillas-texto {
+    font-size: 5rem;
+  }
+
+  /* --- SOBRE MÍ --- */
+  .contenedor-sobre-mi {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .columna-texto-sobre-mi {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contenedor-pildoras {
+    justify-content: center;
+  }
+
+  .titulo-seccion-sobre-mi {
+    font-size: 2rem;
+  }
+
+  /* --- TESTIMONIOS --- */
+  .testimonios-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .testimonios-titulo {
+    font-size: 2rem;
+  }
+
+  /* --- FOOTER --- */
+  .footer-contenido {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .footer-enlaces,
+  .footer-contacto {
+    align-items: center;
+  }
+
+  .footer-enlaces ul {
+    align-items: center;
+  }
+
+  .footer-redes {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .footer-texto {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  /* --- CALENDARIO DE TURNOS --- */
+  .cal-main {
+    padding: 70px 6%;
+  }
+
+  .cal-title {
+    font-size: 2.4rem;
+  }
+
+  .faq-titulo {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .titulo-principal {
+    font-size: 2.1rem;
+  }
+
+  .titulo-cursiva {
+    font-size: 2.6rem;
+  }
+
+  .foto-arco {
+    max-width: 220px;
+  }
+
+  .hoja-flotante {
+    max-width: 60px;
+  }
+
+  .cal-title {
+    font-size: 2rem;
+  }
+
+  .cal-times-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

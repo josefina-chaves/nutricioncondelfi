@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Navbar from "@/components/Navbar/Navbar";
 
 const PLANES_CATEGORIAS = [
   {
@@ -197,31 +197,7 @@ export default function CalendarioTurnosPage() {
 
   return (
     <>
-      <header className="navbar-header">
-        <nav className="navbar-container">
-          
-          <Link href="/" className="navbar-brand">
-            <img 
-              src="/assets/hoja-1.png" 
-              alt="Nutrición con Delfi Logo" 
-              className="navbar-logo-hoja" 
-            />
-            <span className="navbar-titulo-marca">Nutrición con Delfi</span>
-          </Link>
-
-          <div className="navbar-derecha">
-            <ul className="navbar-links">
-              <li><Link href="/#sobre-mi">Sobre Mí</Link></li>
-              <li><Link href="/CalendarioTurnos">Turnos</Link></li>
-              <li><Link href="/CalendarioTurnos#faq">Preguntas frecuentes</Link></li>
-            </ul>
-            <Link href="/#contacto" className="boton-navbar-contacto">
-              Contacto
-            </Link>
-          </div>
-
-        </nav>
-      </header>
+      <Navbar />
 
       <main className="cal-main" style={{ paddingTop: '140px' }}>
         <motion.div

@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from "next/link";
+import Navbar from "@/components/Navbar/Navbar";
 
 // 6 Testimonios anónimos
 const testimonios = [
@@ -61,40 +62,9 @@ export default function Inicio() {
   return (
     <>
       {/* =========================================
-          BARRA DE NAVEGACIÓN (NAVBAR INTEGRADO)
+          BARRA DE NAVEGACIÓN
           ========================================= */}
-      <header className="navbar-header">
-        <nav className="navbar-container">
-          
-          <Link href="/" className="navbar-brand">
-            <img 
-              src="/assets/hoja-1.png" 
-              alt="Nutrición con Delfi Logo" 
-              className="navbar-logo-hoja" 
-            />
-            <span className="navbar-titulo-marca">Nutrición con Delfi</span>
-          </Link>
-
-          <div className="navbar-derecha">
-            <ul className="navbar-links">
-              <li><Link href="/#sobre-mi">Sobre Mí</Link></li>
-              <li><Link href="/CalendarioTurnos">Turnos</Link></li>
-              <li><Link href="/CalendarioTurnos#faq">Preguntas frecuentes</Link></li>
-            </ul>
-            
-            {/* BOTÓN WHATSAPP EN NAVBAR */}
-            <a 
-              href="https://wa.me/5492215732060?text=¡Hola%20Delfi!%20Me%20gustaría%20hacerte%20una%20consulta." 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="boton-navbar-contacto"
-            >
-              Contacto
-            </a>
-          </div>
-
-        </nav>
-      </header>
+      <Navbar />
 
       {/* =========================================
           CONTENIDO PRINCIPAL
