@@ -1397,59 +1397,52 @@ img {
 }
 
 /* =========================================
-   REGLAS RESPONSIVE ESTRICTAS (CELULARES)
+   ACOMODO DE BLOQUES PARA CELULAR
    ========================================= */
 @media (max-width: 768px) {
-  /* 1. Evitamos el scroll horizontal molesto */
-  body, html {
-    overflow-x: hidden !important;
-    width: 100% !important;
-  }
-
-  /* 2. Ajuste del Glass Container (Hero) */
-  .glass-container, .hero-section {
-    width: 90% !important;
-    margin: 20px auto !important;
-    padding: 30px 20px !important;
-    text-align: center !important;
-  }
-
-  /* Textos gigantes achicados */
-  h1 { font-size: 2.2rem !important; line-height: 1.2 !important; }
-  h2 { font-size: 1.8rem !important; text-align: center !important; }
-  p { font-size: 1rem !important; }
-
-  /* 3. ARREGLO DE LAS POLAROIDS */
-  /* Obligamos al contenedor a apilar las fotos en vez de ponerlas una al lado de la otra */
-  .contenedor-polaroids {
-    min-height: auto !important;
-    margin-top: 20px !important;
+  
+  /* 1. Bloque Central / Hero */
+  .hero-grid {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
+    text-align: center !important;
     gap: 30px !important;
   }
-
-  /* Le sacamos la posición absoluta para que no floten fuera de la pantalla */
-  .polaroid, .polaroid-izq, .polaroid-der {
-    position: relative !important;
-    transform: none !important; /* Anulamos las rotaciones extremas */
-    width: 85% !important;
-    margin: 0 auto !important;
-  }
-
-  /* 4. ARREGLO DE GRILLAS (Servicios y Testimonios) */
-  /* Todo lo que esté en grilla o en fila, pasa a ser columna */
-  .grid, .servicios-grid, .flex, .testimonios-container {
+  .columna-izquierda, .columna-centro, .columna-derecha {
+    width: 100% !important;
     display: flex !important;
     flex-direction: column !important;
-    width: 100% !important;
-    gap: 20px !important;
+    align-items: center !important;
   }
 
-  /* Ajuste de tarjetas de servicios y testimonios para que ocupen el ancho del celu */
-  .tarjeta-servicio, .testimonio-card {
-    width: 90% !important;
-    margin: 0 auto !important;
+  /* 2. Bloque Sobre Mí */
+  .contenedor-sobre-mi {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 30px !important;
+  }
+  .columna-imagenes-sobre-mi, .columna-texto-sobre-mi {
+    width: 100% !important;
+  }
+  .contenedor-pildoras {
+    justify-content: center !important; /* Centra los botoncitos redondos */
+  }
+
+  /* 3. Bloque Footer */
+  .footer-contenido {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    gap: 30px !important;
+  }
+  .footer-marca, .footer-enlaces, .footer-contacto {
+    width: 100% !important;
+  }
+  .footer-redes {
+    justify-content: center !important; /* Centra los iconos de redes */
   }
 }
