@@ -1396,163 +1396,60 @@ img {
   height: auto;
 }
 
-@media (max-width: 900px) {
-  /* --- HERO --- */
-  .hero-container {
-    padding: 110px 6% 50px 6%;
+/* =========================================
+   REGLAS RESPONSIVE ESTRICTAS (CELULARES)
+   ========================================= */
+@media (max-width: 768px) {
+  /* 1. Evitamos el scroll horizontal molesto */
+  body, html {
+    overflow-x: hidden !important;
+    width: 100% !important;
   }
 
-  .hero-grid {
-    flex-direction: column;
-    text-align: center;
-    gap: 3rem;
+  /* 2. Ajuste del Glass Container (Hero) */
+  .glass-container, .hero-section {
+    width: 90% !important;
+    margin: 20px auto !important;
+    padding: 30px 20px !important;
+    text-align: center !important;
   }
 
-  .columna-izquierda,
-  .columna-derecha {
-    align-items: center;
-    padding: 0;
+  /* Textos gigantes achicados */
+  h1 { font-size: 2.2rem !important; line-height: 1.2 !important; }
+  h2 { font-size: 1.8rem !important; text-align: center !important; }
+  p { font-size: 1rem !important; }
+
+  /* 3. ARREGLO DE LAS POLAROIDS */
+  /* Obligamos al contenedor a apilar las fotos en vez de ponerlas una al lado de la otra */
+  .contenedor-polaroids {
+    min-height: auto !important;
+    margin-top: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 30px !important;
   }
 
-  .contenedor-boton-cta {
-    align-self: center;
-    margin-top: 1.5rem;
+  /* Le sacamos la posición absoluta para que no floten fuera de la pantalla */
+  .polaroid, .polaroid-izq, .polaroid-der {
+    position: relative !important;
+    transform: none !important; /* Anulamos las rotaciones extremas */
+    width: 85% !important;
+    margin: 0 auto !important;
   }
 
-  .titulo-principal {
-    font-size: 2.6rem;
+  /* 4. ARREGLO DE GRILLAS (Servicios y Testimonios) */
+  /* Todo lo que esté en grilla o en fila, pasa a ser columna */
+  .grid, .servicios-grid, .flex, .testimonios-container {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 20px !important;
   }
 
-  .titulo-cursiva {
-    font-size: 3.2rem;
-  }
-
-  .contenedor-foto {
-    margin: 0 auto;
-  }
-
-  .foto-arco {
-    max-width: 280px;
-  }
-
-  .hoja-flotante {
-    max-width: 90px;
-  }
-
-  .hoja-arriba-izq { top: -10px; left: -10px; }
-  .hoja-arriba-der { top: -5px; right: -10px; }
-  .hoja-abajo-izq { bottom: 10px; left: -15px; }
-  .hoja-abajo-der { bottom: 10px; right: -15px; }
-
-  .texto-presentacion {
-    margin-top: 0;
-    text-align: center;
-  }
-
-  .contenedor-boton-testimonios {
-    align-self: center;
-  }
-
-  /* --- FRASE DE TRANSICIÓN --- */
-  .frase-enfoque {
-    font-size: 1.5rem;
-  }
-
-  .icono-comillas-texto {
-    font-size: 5rem;
-  }
-
-  /* --- SOBRE MÍ --- */
-  .contenedor-sobre-mi {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
-  }
-
-  .columna-texto-sobre-mi {
-    align-items: center;
-    text-align: center;
-  }
-
-  .contenedor-pildoras {
-    justify-content: center;
-  }
-
-  .titulo-seccion-sobre-mi {
-    font-size: 2rem;
-  }
-
-  /* --- TESTIMONIOS --- */
-  .testimonios-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .testimonios-titulo {
-    font-size: 2rem;
-  }
-
-  /* --- FOOTER --- */
-  .footer-contenido {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 2.5rem;
-  }
-
-  .footer-enlaces,
-  .footer-contacto {
-    align-items: center;
-  }
-
-  .footer-enlaces ul {
-    align-items: center;
-  }
-
-  .footer-redes {
-    flex-direction: row;
-    justify-content: center;
-  }
-
-  .footer-texto {
-    max-width: 100%;
-    margin: 0 auto;
-  }
-
-  /* --- CALENDARIO DE TURNOS --- */
-  .cal-main {
-    padding: 70px 6%;
-  }
-
-  .cal-title {
-    font-size: 2.4rem;
-  }
-
-  .faq-titulo {
-    font-size: 2.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .titulo-principal {
-    font-size: 2.1rem;
-  }
-
-  .titulo-cursiva {
-    font-size: 2.6rem;
-  }
-
-  .foto-arco {
-    max-width: 220px;
-  }
-
-  .hoja-flotante {
-    max-width: 60px;
-  }
-
-  .cal-title {
-    font-size: 2rem;
-  }
-
-  .cal-times-grid {
-    grid-template-columns: repeat(2, 1fr);
+  /* Ajuste de tarjetas de servicios y testimonios para que ocupen el ancho del celu */
+  .tarjeta-servicio, .testimonio-card {
+    width: 90% !important;
+    margin: 0 auto !important;
   }
 }
