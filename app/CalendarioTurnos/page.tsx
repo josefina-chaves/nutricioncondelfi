@@ -134,7 +134,7 @@ export default function CalendarioTurnosPage() {
 
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const getAvailableSlots = (dayIndex: number, tipoHorario: string) => {
+  const getAvailableSlots = (dayIndex: number, tipoHorario: string): string[] => {
     // @ts-ignore
     const horariosDelDia = DISPONIBILIDAD[dayIndex];
     if (!horariosDelDia) return [];
