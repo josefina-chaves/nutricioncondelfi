@@ -142,7 +142,7 @@ export default function CalendarioTurnosPage() {
     return horariosDelDia[tipoHorario] || [];
   };
 
-  const timeSlots = selectedDate ? getAvailableSlots(selectedDate.getDay(), selectedPlan.tipoHorario) : [];
+  const timeSlots: string[] = selectedDate ? getAvailableSlots(selectedDate.getDay(), selectedPlan.tipoHorario) : [];
 
   const year = currentMonthView.getFullYear();
   const month = currentMonthView.getMonth();
@@ -412,7 +412,7 @@ export default function CalendarioTurnosPage() {
                 )}
 
                 <div className="cal-times-grid">
-                  {timeSlots.map((time: string) => {
+                  {timeSlots.map((time) => {
                     const isSelected = selectedTime === time;
                     return (
                       <button
