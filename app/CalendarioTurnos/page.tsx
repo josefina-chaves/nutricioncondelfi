@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import Navbar from "@/components/Navbar/Navbar";
 
 const PLANES_CATEGORIAS = [
   /* Ocultamos temporalmente el programa completo de 82.000
@@ -28,7 +28,7 @@ const PLANES_CATEGORIAS = [
       { 
         id: 'presencial-1', 
         nombre: 'Sesión 1:1 Presencial', 
-        desc: 'Presencial · Incluye Antropometría (1h 30m)', 
+        desc: 'Presencial · Incluye Antropometría (1h)', 
         precio: 70000, 
         sena: 15000, 
         recomendado: true, 
@@ -72,12 +72,12 @@ const PLANES_CATEGORIAS = [
 const DISPONIBILIDAD = {
   1: { 
     'virtual': ["08:00", "09:00", "10:00", "11:00"],
-    'presencial-antropometria': ["16:00", "17:30"],
+    'presencial-antropometria': ["16:00", "17:00", "18:00", "19:00"],
     'presencial-seguimiento': ["16:00", "17:00", "18:00", "19:00"],
   },
   2: { 
     'virtual': ["08:00", "09:00", "10:00", "11:00", "12:00"],
-    'presencial-antropometria': ["14:30", "16:00"],
+    'presencial-antropometria': ["14:30", "15:30", "16:30"],
     'presencial-seguimiento': ["14:30", "15:30", "16:30"],
   },
   3: { 
@@ -87,7 +87,7 @@ const DISPONIBILIDAD = {
   },
   4: { 
     'virtual': ["16:00", "17:00", "18:00", "19:00"],
-    'presencial-antropometria': ["08:00", "09:30"],
+    'presencial-antropometria': ["08:00", "09:00", "10:00", "11:00"],
     'presencial-seguimiento': ["08:00", "09:00", "10:00", "11:00"],
   },
   5: { 
@@ -105,7 +105,7 @@ const DIAS_SEMANA = ["LU", "MA", "MI", "JU", "VI", "SÁ", "DO"];
 const FAQS = [
   {
     pregunta: "¿Cómo son las consultas?",
-    respuesta: "La consulta dura aproximadamente 1 hora (1 hora y media en el caso de la sesión inicial con antropometría). Vamos a charlar sobre vos, tus hábitos, tu alimentación, rutina, actividad física y objetivos. Además, te voy a explicar algunos conceptos importantes para que entiendas el porqué de cada recomendación. Con toda esa información, después preparo tu plan de alimentación 100% personalizado y te lo envío."
+    respuesta: "La consulta dura aproximadamente 1 hora. Vamos a charlar sobre vos, tus hábitos, tu alimentación, rutina, actividad física y objetivos. Además, te voy a explicar algunos conceptos importantes para que entiendas el porqué de cada recomendación. Con toda esa información, después preparo tu plan de alimentación 100% personalizado y te lo envío."
   },
   {
     pregunta: "¿Las consultas son presenciales u online?",
@@ -169,7 +169,7 @@ export default function CalendarioTurnosPage() {
       ? "Presencial · Consultorio (Calle 39 n° 16 y 17, La Plata)"
       : "Virtual · Videollamada por Google Meet";
 
-    const duracion = selectedPlan.tipoHorario === 'presencial-antropometria' ? '1 hora y media (con Antropometría)' : '1 hora';
+    const duracion = '1 hora';
 
     const mensaje = `¡Hola! Ya agendé mi turno para ${selectedPlan.nombre}.
 
@@ -199,7 +199,31 @@ export default function CalendarioTurnosPage() {
 
   return (
     <>
-      <Navbar />
+      <header className="navbar-header">
+        <nav className="navbar-container">
+          
+          <Link href="/" className="navbar-brand">
+            <img 
+              src="/assets/hoja-1.png" 
+              alt="Nutrición con Delfi Logo" 
+              className="navbar-logo-hoja" 
+            />
+            <span className="navbar-titulo-marca">Nutrición con Delfi</span>
+          </Link>
+
+          <div className="navbar-derecha">
+            <ul className="navbar-links">
+              <li><Link href="/#sobre-mi">Sobre Mí</Link></li>
+              <li><Link href="/CalendarioTurnos">Turnos</Link></li>
+              <li><Link href="/CalendarioTurnos#faq">Preguntas frecuentes</Link></li>
+            </ul>
+            <Link href="/#contacto" className="boton-navbar-contacto">
+              Contacto
+            </Link>
+          </div>
+
+        </nav>
+      </header>
 
       <main className="cal-main" style={{ paddingTop: '140px' }}>
         <motion.div
@@ -388,7 +412,7 @@ export default function CalendarioTurnosPage() {
                 )}
 
                 <div className="cal-times-grid">
-                  {timeSlots.map((time: string) => {
+                  {timeSlots.map((time) => {
                     const isSelected = selectedTime === time;
                     return (
                       <button
@@ -413,9 +437,7 @@ export default function CalendarioTurnosPage() {
                     <p style={{ color: '#4A3B32', fontWeight: '600' }}>
                       {selectedPlan.modalidad === 'virtual' 
                         ? '💻 Online (Google Meet) · 1 hora' 
-                        : selectedPlan.tipoHorario === 'presencial-antropometria'
-                          ? '📍 Presencial: Calle 39 nº 16 y 17, La Plata · 1h 30m'
-                          : '📍 Presencial: Calle 39 nº 16 y 17, La Plata · 1 hora'}
+                        : '📍 Presencial: Calle 39 nº 16 y 17, La Plata · 1 hora'}
                     </p>
                   </div>
 
@@ -451,6 +473,7 @@ export default function CalendarioTurnosPage() {
           <div className="seccion-faq-turnos" id="faq">
             <div className="faq-turnos-header">
               <div className="faq-tag-wrapper">
+                <span className="faq-numero">08</span>
                 <span className="faq-linea"></span>
                 <span className="faq-tag">PREGUNTAS</span>
               </div>
