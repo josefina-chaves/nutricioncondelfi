@@ -412,7 +412,7 @@ export default function CalendarioTurnosPage() {
                 )}
 
                 <div className="cal-times-grid">
-                  {timeSlots.map((time) => {
+                  {timeSlots.map((time: string) => {
                     const isSelected = selectedTime === time;
                     return (
                       <button
@@ -523,4 +523,3 @@ export default function CalendarioTurnosPage() {
     </>
   );
 }
-// Forzando actualizacion de turnos
